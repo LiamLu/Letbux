@@ -16,7 +16,19 @@
             </div>
             <div>
             <input type="password" class="form-control" placeholder="password" name="password" required="" />
+            <div class="row">
+                <div class="col-md-8">
+                <input type="text" class = "form-control" placeholder="captcha" name="captcha" required="" />
+                </div>
+                <div class="col-md-4">
+                <image src="{{captcha_src()}}" style="cursor:pointer;" onclick="this.src='{{captcha_src()}}'+Math.random()"/>
+                </div>
             </div>
+            @if ($errors->has('captcha'))
+                <div class="col-md-12">                
+                <p class='text-danger text-left'><strong>{{$errors->first('captcha')}}</strong></p>
+                </div>
+            @endif
             <div>
             <button class="btn btn-primary submit" type="submit">Log in</button>
             <a class="reset_pass" href="{{ url('/password/reset') }}">Lost your password?</a>
