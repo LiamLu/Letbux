@@ -44,6 +44,9 @@ class LoginController extends Controller
             $this->username() => 'required', 
             'password' => 'required',
             'captcha' => 'required|captcha',
+        ],[
+            'captcha.required' => trans('validation.required') ,
+            'captcha.captcha' => trans('validation.captcha'),
         ]);
     }
 }
